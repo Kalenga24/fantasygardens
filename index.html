@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Just Me Fantasy Gardens | Lusaka</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--gd:#0e1f0e;--gm:#1c3620;--gl:#2d5233;--gold:#c9a96e;--gll:#e2c98a;--gp:#f0e4c8;--ivory:#f7f3ec;--cream:#faf7f2;--td:#1a1a14;--tm:#3d3d30;--tx:#7a7a6a;--w:#ffffff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}body{font-family:'Jost',sans-serif;background:linear-gradient(to bottom, var(--cream), var(--gp));color:var(--td);overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--gd);}::-webkit-scrollbar-thumb{background:var(--gold);}
+/* PAGE SYSTEM */
+.page{display:none;}.page.active{display:block;animation:pageIn 0.4s ease forwards;}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1rem 4rem;background:rgba(14,31,14,0.97);backdrop-filter:blur(14px);box-shadow:0 2px 30px rgba(0,0,0,0.25);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--w);letter-spacing:0.06em;cursor:pointer;line-height:1.1;}
+.nav-logo span{color:var(--gold);display:block;font-size:0.58rem;font-family:'Jost',sans-serif;letter-spacing:0.35em;text-transform:uppercase;font-weight:300;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;transition:color 0.3s;position:relative;padding-bottom:4px;cursor:pointer;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gll);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nbk{background:var(--gold)!important;color:var(--gd)!important;padding:0.45rem 1.2rem;font-weight:500!important;}
+.nbk::after{display:none!important;}.nbk:hover{background:var(--gll)!important;}
+.hbg-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.hbg-btn span{display:block;width:24px;height:1.5px;background:var(--w);}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--gd);flex-direction:column;align-items:center;justify-content:center;gap:2rem;z-index:999;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--ivory);cursor:pointer;font-weight:300;transition:color 0.3s;}
+.mob-menu a:hover{color:var(--gold);}
+.mob-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--gold);cursor:pointer;background:none;border:none;}
+/* SHARED */
+.si{max-width:1200px;margin:0 auto;padding:0 2rem;}
+.stag{font-size:0.63rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:0.8rem;display:block;}
+.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.1;color:var(--gd);}
+.sh em{font-style:italic;color:var(--gl);}
+.gr{width:55px;height:1px;background:var(--gold);margin:1.5rem 0;}
+.rev{opacity:0;transform:translateY(25px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.rev.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}
+.btn-p{background:var(--gold);color:var(--gd);padding:0.9rem 2.4rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;display:inline-block;}
+.btn-p:hover{background:var(--gll);transform:translateY(-2px);box-shadow:0 4px 15px rgba(201,169,110,0.4);}
+.btn-o{background:transparent;color:var(--gd);padding:0.9rem 2.4rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;border:1px solid var(--gm);cursor:pointer;transition:all 0.3s;display:inline-block;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);}
+.btn-w{background:transparent;color:var(--w);padding:0.9rem 2.4rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;display:inline-block;}
+.btn-w:hover{border-color:var(--gold);color:var(--gold);}
+/* PAGE HERO */
+.ph{min-height:400px;display:flex;align-items:flex-end;padding-bottom:5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--gd) 0%,var(--gm) 60%,var(--gl) 100%);}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(201,169,110,0.08),transparent 60%);}
+.phi{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:8rem 2rem 0;width:100%;}
+.pbc{font-size:0.63rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.pbc a{color:rgba(255,255,255,0.45);cursor:pointer;transition:color 0.3s;}.pbc a:hover{color:var(--gold);}
+.pt{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:300;color:var(--w);line-height:0.95;}
+.pt em{font-style:italic;color:var(--gll);}
+.ps{font-size:0.95rem;color:rgba(255,255,255,0.5);font-weight:300;margin-top:1.2rem;max-width:480px;line-height:1.7;}
+/* FOOTER */
+footer{background:#060f06;padding:5rem 0 2rem;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:4rem;border-bottom:1px solid rgba(201,169,110,0.12);}
+.flogo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ivory);}
+.flogo span{color:var(--gold);display:block;font-size:0.6rem;font-family:'Jost',sans-serif;letter-spacing:0.3em;text-transform:uppercase;font-weight:300;margin-top:0.3rem;}
+.fabout{font-size:0.82rem;color:rgba(255,255,255,0.35);line-height:1.8;font-weight:300;margin-top:1rem;}
+.fct{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:1.3rem;}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:0.65rem;}
+.flinks a{font-size:0.82rem;color:rgba(255,255,255,0.38);cursor:pointer;font-weight:300;transition:color 0.3s;}.flinks a:hover{color:var(--gll);}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;font-size:0.68rem;color:rgba(255,255,255,0.2);}
+/* FLOATING BTN */
+.fab{position:fixed;bottom:2rem;right:2rem;z-index:500;width:66px;height:66px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 28px rgba(201,169,110,0.4);animation:pulse 3s ease-in-out infinite;transition:transform 0.3s;}
+.fab:hover{transform:scale(1.08);}
+.fabt{font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gd);font-weight:600;text-align:center;line-height:1.4;}
+@keyframes pulse{0%,100%{box-shadow:0 4px 28px rgba(201,169,110,0.35)}50%{box-shadow:0 6px 48px rgba(201,169,110,0.6)}}
+/* FORM */
+.fgrp{margin-bottom:1.4rem;}
+.fgrp label{display:block;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tx);margin-bottom:0.5rem;font-weight:400;}
+.fgrp input,.fgrp select,.fgrp textarea{width:100%;padding:0.85rem 1rem;border:1px solid #e0dcd4;background:var(--cream);font-family:'Jost',sans-serif;font-size:0.87rem;color:var(--td);font-weight:300;outline:none;transition:border-color 0.3s;appearance:none;}
+.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:var(--gold);}
+.fgrp textarea{resize:vertical;min-height:100px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+
+/* ═══ PAGE: HOME ═══ */
+.hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hbg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(14,31,14,0.76) 0%,rgba(14,31,14,0.32) 55%,rgba(14,31,14,0.73) 100%), url('img/1774218833387.jpg') center/cover;}
+.hbot{position:absolute;right:5%;top:50%;transform:translateY(-50%);opacity:0.1;pointer-events:none;width:40vw;max-width:560px;}
+.hc{position:relative;z-index:2;text-align:center;padding:2rem;}
+.hey{font-size:0.66rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:300;animation:fu 0.9s 0.2s both;}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,9vw,8rem);font-weight:300;color:var(--w);line-height:0.93;text-shadow:0 0 10px rgba(201,169,110,0.5);animation:fu 0.9s 0.4s both;}
+.ht em{font-style:italic;color:var(--gll);}
+.hsub{font-size:clamp(0.85rem,1.8vw,1rem);color:rgba(255,255,255,0.62);font-weight:200;letter-spacing:0.15em;margin:1.8rem 0 3rem;animation:fu 0.9s 0.6s both;}
+.hcta{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;animation:fu 0.9s 0.8s both;}
+.hscr{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.38);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;animation:fu 0.9s 1s both;}
+.sline{width:1px;height:42px;background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent);animation:sp 1.8s ease-in-out infinite;}
+@keyframes sp{0%,100%{opacity:0.4;transform:scaleY(0.4)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fstrip{background:var(--gd);padding:4rem 0;}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);}
+.fi{padding:2.2rem 2rem;border-right:1px solid rgba(201,169,110,0.1);text-align:center;}
+.fi:last-child{border-right:none;}
+.fii{font-size:1.7rem;margin-bottom:0.9rem;}
+.fit{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);font-weight:400;margin-bottom:0.45rem;}
+.fid{font-size:0.78rem;color:rgba(255,255,255,0.42);font-weight:300;line-height:1.68;}
+.aprsec{padding:7rem 0;background:var(--cream);}
+.apg{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.pimg{width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+.pimg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 35% 35%,rgba(201,169,110,0.12),transparent 60%);}
+.pfr{position:absolute;top:-1.5rem;left:-1.5rem;width:55%;height:55%;border:1px solid rgba(201,169,110,0.32);pointer-events:none;}
+.pbdg{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--gold);color:var(--gd);padding:1.3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;text-align:center;line-height:1.2;}
+.pbdg small{display:block;font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.18em;font-weight:300;margin-top:0.2rem;}
+.ab{font-size:1rem;line-height:1.9;color:var(--tm);font-weight:300;margin-bottom:1.4rem;}
+.strow{display:flex;gap:3rem;padding-top:2rem;border-top:1px solid var(--gp);margin-top:1.5rem;}
+.sn{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--gm);line-height:1;}
+.sl{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--tx);margin-top:0.3rem;}
+.eprsec{padding:7rem 0;background:var(--gd);position:relative;overflow:hidden;}
+.eprsec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(201,169,110,0.05),transparent 55%);}
+.eprsec .sh{color:var(--ivory);}
+.ecards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:3.5rem;background:rgba(201,169,110,0.11);}
+.ecard{background:var(--gd);padding:2.3rem 2rem;transition:background 0.35s;position:relative;overflow:hidden;}
+.ecard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.35s;}
+.ecard:hover{background:rgba(28,54,32,0.88);}
+.ecard:hover::after{transform:scaleX(1);}
+.ei{font-size:1.7rem;margin-bottom:1.1rem;display:block;}
+.en{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--ivory);font-weight:400;margin-bottom:0.55rem;}
+.ed{font-size:0.82rem;color:rgba(255,255,255,0.42);font-weight:300;line-height:1.7;}
+.tprsec{padding:7rem 0;background:var(--ivory);position:relative;overflow:hidden;}
+.tprsec::before{content:'"';position:absolute;top:-3rem;left:2rem;font-family:'Cormorant Garamond',serif;font-size:20rem;color:rgba(201,169,110,0.07);line-height:1;pointer-events:none;}
+.tg3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;}
+.tc{background:var(--w);padding:2.4rem;border-left:3px solid var(--gold);}
+.ts{color:var(--gold);font-size:0.83rem;letter-spacing:0.1em;margin-bottom:1.1rem;}
+.tq{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;line-height:1.82;color:var(--tm);font-style:italic;margin-bottom:1.7rem;}
+.ta{display:flex;align-items:center;gap:0.9rem;}
+.tav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;color:var(--gll);font-family:'Cormorant Garamond',serif;font-size:1rem;flex-shrink:0;}
+.tname{font-weight:500;font-size:0.84rem;color:var(--td);}
+.tevent{font-size:0.68rem;color:var(--tx);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.1rem;}
+.cban{padding:5.5rem 0;background:var(--gold);position:relative;overflow:hidden;}
+.cban::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,255,255,0.14),transparent 65%);}
+.cbinner{position:relative;text-align:center;}
+.cbt{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,5vw,4rem);font-weight:300;color:var(--gd);line-height:1.05;margin-bottom:1.3rem;}
+.cbs{font-size:0.95rem;color:rgba(14,31,14,0.58);font-weight:300;margin-bottom:2.3rem;letter-spacing:0.05em;}
+/* ═══ PAGE: ABOUT ═══ */
+.ag2{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.aimg{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+.aimg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 35% 35%,rgba(201,169,110,0.12),transparent 55%);}
+.vsec{padding:6.5rem 0;background:var(--gd);}
+.vsec .sh{color:var(--ivory);}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;}
+.vc{padding:2.3rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.11);}
+.vico{font-size:1.7rem;margin-bottom:0.9rem;}
+.vtit{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ivory);font-weight:400;margin-bottom:0.65rem;}
+.vtxt{font-size:0.83rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.72;}
+.tmsec{padding:6.5rem 0;background:var(--ivory);}
+.tmg{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:4rem;}
+.tmc{text-align:center;}
+.tmp{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;font-size:2.7rem;margin:0 auto 1.4rem;border:3px solid var(--gp);}
+.tmn{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--gd);font-weight:400;}
+.tmr{font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:0.3rem;}
+.tmb{font-size:0.83rem;color:var(--tx);line-height:1.72;margin-top:0.9rem;font-weight:300;}
+.statsec{padding:5.5rem 0;background:var(--gold);}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;}
+.sbox{padding:2rem;border-right:1px solid rgba(14,31,14,0.14);}
+.sbox:last-child{border-right:none;}
+.sbig{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:var(--gd);line-height:1;}
+.slbl{font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(14,31,14,0.58);margin-top:0.45rem;font-weight:400;}
+/* ═══ PAGE: EVENTS ═══ */
+.pkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:5rem;}
+.pkc{background:var(--w);position:relative;overflow:hidden;border:1px solid #ede9e1;transition:transform 0.3s,box-shadow 0.3s;}
+.pkc:hover{transform:translateY(-5px);box-shadow:0 14px 55px rgba(0,0,0,0.1);}
+.pkc.feat{border-color:var(--gold);}
+.pkfb{position:absolute;top:1.1rem;right:1.1rem;background:var(--gold);color:var(--gd);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.28rem 0.7rem;font-weight:500;}
+.pkh{padding:2.3rem 2.3rem 0;}
+.pkico{font-size:2rem;margin-bottom:1.1rem;display:block;}
+.pkn{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:var(--gd);margin-bottom:0.45rem;}
+.pktag{font-size:0.8rem;color:var(--tx);font-weight:300;line-height:1.58;}
+.pkdiv{height:1px;background:var(--gp);margin:1.6rem 2.3rem;}
+.pkb{padding:0 2.3rem;}
+.pklt{font-size:0.63rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:0.9rem;}
+.pkli{list-style:none;display:flex;flex-direction:column;gap:0.65rem;}
+.pkli li{font-size:0.85rem;color:var(--tm);font-weight:300;display:flex;gap:0.65rem;align-items:flex-start;}
+.pkli li::before{content:'✦';color:var(--gold);font-size:0.58rem;margin-top:0.18rem;flex-shrink:0;}
+.pkf{padding:1.8rem 2.3rem 2.3rem;margin-top:1.4rem;}
+.pkp{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gm);font-weight:400;margin-bottom:0.9rem;}
+.pkp small{font-family:'Jost',sans-serif;font-size:0.68rem;color:var(--tx);font-weight:300;display:block;margin-top:0.18rem;}
+.pkbtn{display:block;width:100%;padding:0.88rem;text-align:center;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:400;background:var(--gd);color:var(--w);transition:background 0.3s;border:none;cursor:pointer;}
+.pkbtn:hover{background:var(--gl);}
+.pkc.feat .pkbtn{background:var(--gold);color:var(--gd);}
+.pkc.feat .pkbtn:hover{background:var(--gll);}
+.aosec{padding:6.5rem 0;background:var(--gd);}
+.aosec .sh{color:var(--ivory);}
+.aog{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;margin-top:4rem;background:rgba(201,169,110,0.11);}
+.aoi{background:var(--gd);padding:1.9rem 1.7rem;}
+.aoic{font-size:1.4rem;margin-bottom:0.75rem;}
+.aon{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);font-weight:400;margin-bottom:0.38rem;}
+.aod{font-size:0.78rem;color:rgba(255,255,255,0.42);font-weight:300;line-height:1.63;}
+.prosec{padding:6.5rem 0;background:var(--ivory);}
+.prg{display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;margin-top:4rem;}
+.prstep{text-align:center;}
+.prnum{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:var(--gp);line-height:1;}
+.prtit{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gd);margin:0.45rem 0;}
+.prdesc{font-size:0.8rem;color:var(--tx);font-weight:300;line-height:1.68;}
+.faqsec{padding:6.5rem 0;background:var(--cream);}
+.faqlist{margin-top:2.8rem;display:flex;flex-direction:column;max-width:760px;}
+.faqitem{border-bottom:1px solid #e5e1d9;}
+.faqq{padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--gd);user-select:none;}
+.faqa-arrow{color:var(--gold);font-size:1rem;transition:transform 0.3s;}
+.faqq.op .faqa-arrow{transform:rotate(45deg);}
+.faqa{font-size:0.88rem;color:var(--tm);font-weight:300;line-height:1.82;max-height:0;overflow:hidden;transition:max-height 0.38s ease,padding 0.28s;}
+.faqa.op{max-height:280px;padding-bottom:1.4rem;}
+/* ═══ PAGE: GALLERY ═══ */
+.gfltrs{display:flex;gap:0.55rem;flex-wrap:wrap;margin:2.8rem 0 3.2rem;}
+.gfbtn{padding:0.5rem 1.3rem;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;cursor:pointer;border:1px solid #ddd;background:transparent;color:var(--tx);transition:all 0.3s;}
+.gfbtn.active,.gfbtn:hover{background:var(--gd);color:var(--w);border-color:var(--gd);}
+.ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.gi{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;transition:opacity 0.4s;}
+.gi.tall{grid-row:span 2;aspect-ratio:unset;}
+.gi.wide{grid-column:span 2;aspect-ratio:unset;height:260px;}
+.gph{width:100%;height:100%;min-height:190px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;transition:transform 0.5s;}
+.gi:hover .gph{transform:scale(1.04);}
+.gi:nth-child(1) .gph{background:linear-gradient(135deg,#1c3620,#2d5233);}
+.gi:nth-child(2) .gph{background:linear-gradient(135deg,#0e1f0e,#1c3620);}
+.gi:nth-child(3) .gph{background:linear-gradient(135deg,#2d5233,#3a6b40);}
+.gi:nth-child(4) .gph{background:linear-gradient(135deg,#3a6b40,#1c3620);}
+.gi:nth-child(5) .gph{background:linear-gradient(135deg,#c9a96e,#a07840);}
+.gi:nth-child(6) .gph{background:linear-gradient(135deg,#1c3620,#0e1f0e);}
+.gi:nth-child(7) .gph{background:linear-gradient(135deg,#2d5233,#1c3620);}
+.gi:nth-child(8) .gph{background:linear-gradient(135deg,#0e1f0e,#2d5233);}
+.gi:nth-child(9) .gph{background:linear-gradient(135deg,#3a6b40,#2d5233);}
+.gi:nth-child(10) .gph{background:linear-gradient(135deg,#1c3620,#3a6b40);}
+.gi:nth-child(11) .gph{background:linear-gradient(135deg,#2d5233,#0e1f0e);}
+.gov{position:absolute;inset:0;background:rgba(14,31,14,0.72);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.32s;}
+.gi:hover .gov{opacity:1;}
+.gcat{font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:0.45rem;}
+.gcap{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--w);font-weight:300;}
+.lbox{display:none;position:fixed;inset:0;background:rgba(6,15,6,0.96);z-index:2000;align-items:center;justify-content:center;}
+.lbox.open{display:flex;}
+.lbi{position:relative;max-width:680px;width:90%;}
+.lbimg{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;font-size:6rem;}
+.lbcap{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ivory);margin-top:1.4rem;font-weight:300;text-align:center;}
+.lbcl{position:absolute;top:-2.8rem;right:0;color:var(--gold);font-size:1.8rem;cursor:pointer;background:none;border:none;}
+/* ═══ PAGE: TESTIMONIALS ═══ */
+.tg9{display:grid;grid-template-columns:repeat(3,1fr);gap:1.9rem;margin-top:4rem;}
+.tc9{background:var(--w);padding:2.6rem;border-left:3px solid var(--gold);transition:transform 0.3s,box-shadow 0.3s;}
+.tc9:hover{transform:translateY(-4px);box-shadow:0 12px 45px rgba(0,0,0,0.08);}
+.tetag{display:inline-block;background:rgba(201,169,110,0.11);color:var(--gold);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.23rem 0.6rem;margin-bottom:0.95rem;font-weight:400;}
+.rban{padding:5.5rem 0;background:var(--gd);}
+.rg{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;}
+.rbox{padding:2.3rem;border-right:1px solid rgba(201,169,110,0.11);}
+.rbox:last-child{border-right:none;}
+.rbig{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:var(--gold);line-height:1;}
+.rstars{color:var(--gold);font-size:0.8rem;letter-spacing:0.1em;margin:0.38rem 0;}
+.rlbl{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.42);font-weight:300;}
+.lrsec{padding:6.5rem 0;background:var(--ivory);}
+.rfwrap{max-width:660px;margin:3.5rem auto 0;background:var(--w);padding:3.2rem;box-shadow:0 4px 45px rgba(0,0,0,0.05);}
+.starrow{display:flex;gap:0.45rem;margin-bottom:1.4rem;}
+.starbtn{background:none;border:none;font-size:1.7rem;cursor:pointer;color:#ddd;transition:color 0.2s;}
+.starbtn.sel,.starbtn:hover{color:var(--gold);}
+.submrev{width:100%;padding:1rem;background:var(--gd);color:var(--w);border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:400;transition:background 0.3s;}
+.submrev:hover{background:var(--gm);}
+/* ═══ PAGE: BLOG ═══ */
+.blayout{display:grid;grid-template-columns:1fr 320px;gap:4rem;margin-top:4rem;}
+.bposts{display:flex;flex-direction:column;gap:2.8rem;}
+.bcard{background:var(--w);overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;}
+.bcard:hover{transform:translateY(-4px);box-shadow:0 12px 45px rgba(0,0,0,0.08);}
+.bimg{height:260px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;position:relative;overflow:hidden;}
+.bcard:nth-child(1) .bimg{background:linear-gradient(135deg,#1c3620,#2d5233);}
+.bcard:nth-child(2) .bimg{background:linear-gradient(135deg,#0e1f0e,#1c3620);}
+.bcard:nth-child(3) .bimg{background:linear-gradient(135deg,#2d5233,#3a6b40);}
+.bcard:nth-child(4) .bimg{background:linear-gradient(135deg,#c9a96e,#1c3620);}
+.bcat{position:absolute;top:1.1rem;left:1.1rem;background:var(--gold);color:var(--gd);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.27rem 0.75rem;font-weight:500;}
+.bbody{padding:2.2rem;}
+.bmeta{display:flex;gap:1.4rem;font-size:0.68rem;color:var(--tx);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.9rem;font-weight:300;}
+.btit{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:var(--gd);line-height:1.2;margin-bottom:0.9rem;}
+.bex{font-size:0.87rem;color:var(--tx);font-weight:300;line-height:1.78;margin-bottom:1.3rem;}
+.brl{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gm);border-bottom:1px solid var(--gp);padding-bottom:2px;cursor:pointer;transition:color 0.3s,border-color 0.3s;}
+.brl:hover{color:var(--gold);border-color:var(--gold);}
+.bside{display:flex;flex-direction:column;gap:2.2rem;}
+.swid{background:var(--w);padding:1.9rem;}
+.wtit{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gd);font-weight:400;margin-bottom:1.4rem;padding-bottom:0.75rem;border-bottom:1px solid var(--gp);}
+.rpc{display:flex;gap:0.9rem;padding:0.85rem 0;border-bottom:1px solid #f0ece5;}
+.rpc:last-child{border-bottom:none;}
+.rpico{width:50px;height:50px;flex-shrink:0;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.rptit{font-size:0.82rem;color:var(--td);font-weight:400;line-height:1.38;margin-bottom:0.22rem;}
+.rpdt{font-size:0.65rem;color:var(--tx);}
+.tagcloud{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.tag{padding:0.38rem 0.85rem;border:1px solid #ddd;font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tx);cursor:pointer;transition:all 0.3s;font-weight:300;}
+.tag:hover{border-color:var(--gold);color:var(--gold);}
+.nlform input{width:100%;padding:0.78rem 0.9rem;border:1px solid #e0dcd4;background:var(--cream);font-family:'Jost',sans-serif;font-size:0.86rem;outline:none;margin-bottom:0.75rem;transition:border-color 0.3s;}
+.nlform input:focus{border-color:var(--gold);}
+.nlform button{width:100%;padding:0.82rem;background:var(--gd);color:var(--w);border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:400;transition:background 0.3s;}
+.nlform button:hover{background:var(--gm);}
+/* ═══ PAGE: BOOKING ═══ */
+.bklayout{display:grid;grid-template-columns:1fr 1.5fr;gap:5.5rem;align-items:start;}
+.bkic{background:var(--gd);padding:2.8rem;position:relative;overflow:hidden;}
+.bkic::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(201,169,110,0.07),transparent 60%);}
+.bkicc{position:relative;z-index:1;}
+.bkit{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--ivory);font-weight:300;line-height:1.15;margin-bottom:1.1rem;}
+.bkit em{font-style:italic;color:var(--gll);}
+.bkib{font-size:0.86rem;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.85;margin-bottom:2.3rem;}
+.clist{display:flex;flex-direction:column;gap:1.3rem;margin-bottom:2.3rem;}
+.ci{display:flex;gap:0.9rem;align-items:flex-start;}
+.cico{font-size:1rem;flex-shrink:0;margin-top:0.05rem;}
+.clbl{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:400;display:block;margin-bottom:0.18rem;}
+.cval{font-size:0.86rem;color:rgba(255,255,255,0.6);font-weight:300;}
+.socrow{display:flex;gap:0.75rem;padding-top:1.8rem;border-top:1px solid rgba(201,169,110,0.16);}
+.socbtn{width:38px;height:38px;border:1px solid rgba(201,169,110,0.28);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.72rem;font-weight:500;transition:all 0.3s;cursor:pointer;}
+.socbtn:hover{background:var(--gold);color:var(--gd);border-color:var(--gold);}
+.bkfw{background:var(--w);padding:3.8rem;box-shadow:0 6px 55px rgba(0,0,0,0.06);}
+.fmtit{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--gd);font-weight:300;margin-bottom:0.45rem;}
+.fmst{font-size:0.8rem;color:var(--tx);font-weight:300;margin-bottom:2.3rem;}
+.fmsl{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);font-weight:400;margin:1.9rem 0 1.1rem;padding-bottom:0.45rem;border-bottom:1px solid var(--gp);}
+.subbtn{width:100%;padding:1.05rem;background:var(--gd);color:var(--w);border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;font-weight:400;transition:background 0.3s;margin-top:0.45rem;}
+.subbtn:hover{background:var(--gm);}
+.fmlegal{font-size:0.68rem;color:var(--tx);text-align:center;margin-top:0.9rem;line-height:1.6;font-weight:300;}
+.bksuc{display:none;text-align:center;padding:3rem 2rem;}
+.bksuc-ico{font-size:3.3rem;margin-bottom:1.4rem;}
+.bksuc-t{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--gd);font-weight:300;margin-bottom:0.9rem;}
+.bksuc-b{font-size:0.88rem;color:var(--tx);font-weight:300;line-height:1.8;margin-bottom:1.9rem;}
+.whysec{padding:6.5rem 0;background:var(--ivory);}
+.whyg{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.8rem;text-align:center;}
+.whyi{padding:1.9rem 1.4rem;}
+.whyico{font-size:1.9rem;margin-bottom:0.9rem;}
+.whyt{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gd);font-weight:400;margin-bottom:0.45rem;}
+.whyd{font-size:0.8rem;color:var(--tx);font-weight:300;line-height:1.68;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  nav{padding:1rem 2rem;}
+  .fg{grid-template-columns:1fr 1fr;gap:2.2rem;}
+  .apg,.ag2,.bklayout{grid-template-columns:1fr;gap:3.5rem;}
+  .blayout{grid-template-columns:1fr;}
+  .bside{display:grid;grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}.hbg-btn{display:flex;}nav{padding:1rem 1.5rem;}
+  .fgrid,.ecards,.vg,.tmg,.tg3,.tg9,.pkgrid,.rg,.sgrid,.prg,.whyg{grid-template-columns:1fr;}
+  .aog{grid-template-columns:1fr 1fr;}
+  .ggrid{grid-template-columns:1fr 1fr;}
+  .gi.tall,.gi.wide{grid-row:auto;grid-column:auto;height:auto;aspect-ratio:1;}
+  .fi{border-right:none;border-bottom:1px solid rgba(201,169,110,0.11);}
+  .sbox,.rbox{border-right:none;border-bottom:1px solid rgba(201,169,110,0.11);}
+  .sgrid,.rg{grid-template-columns:1fr 1fr;}
+  .fg{grid-template-columns:1fr;}
+  .bkfw,.rfwrap{padding:2.2rem 1.4rem;}
+  .fbot{flex-direction:column;gap:0.45rem;text-align:center;}
+  .si{padding:0 1.1rem;}
+  .frow{grid-template-columns:1fr;}
+  .bside{grid-template-columns:1fr;}
+  .hcta{flex-direction:column;align-items:center;}
+  .strow{gap:1.8rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="G('home')">Just Me Fantasy Gardens<span>Lusaka's Finest Event Garden</span></div>
+  <ul class="nav-links">
+    <li><a onclick="G('home')" id="n-home" class="active">Home</a></li>
+    <li><a onclick="G('about')" id="n-about">About</a></li>
+    <li><a onclick="G('events')" id="n-events">Events</a></li>
+    <li><a onclick="G('gallery')" id="n-gallery">Gallery</a></li>
+    <li><a onclick="G('testimonials')" id="n-testimonials">Reviews</a></li>
+    <li><a onclick="G('blog')" id="n-blog">News</a></li>
+    <li><a onclick="G('booking')" id="n-booking" class="nbk">Book Now</a></li>
+  </ul>
+  <button class="hbg-btn" id="hbgBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a onclick="G('home');CM()">Home</a>
+  <a onclick="G('about');CM()">About</a>
+  <a onclick="G('events');CM()">Events</a>
+  <a onclick="G('gallery');CM()">Gallery</a>
+  <a onclick="G('testimonials');CM()">Reviews</a>
+  <a onclick="G('blog');CM()">News</a>
+  <a onclick="G('booking');CM()">Book Now</a>
+</div>
+
+<!-- ════ HOME ════ -->
+<div class="page active" id="p-home">
+<section class="hero">
+  <div class="hbg"></div>
+  <svg class="hbot" viewBox="0 0 500 600" fill="none">
+    <path d="M250 580C250 580 100 430 70 280C40 130 170 30 250 10C330 30 460 130 430 280C400 430 250 580 250 580Z" stroke="white" stroke-width="1" fill="none"/>
+    <line x1="250" y1="580" x2="250" y2="10" stroke="white" stroke-width="0.7"/>
+    <path d="M250 260C200 230 130 200 80 160" stroke="white" stroke-width="0.6"/><path d="M250 260C300 230 370 200 420 160" stroke="white" stroke-width="0.6"/>
+    <path d="M250 360C190 335 110 310 60 285" stroke="white" stroke-width="0.6"/><path d="M250 360C310 335 390 310 440 285" stroke="white" stroke-width="0.6"/>
+    <ellipse cx="80" cy="160" rx="33" ry="52" transform="rotate(-30 80 160)" stroke="white" stroke-width="0.6" fill="none"/>
+    <ellipse cx="420" cy="160" rx="33" ry="52" transform="rotate(30 420 160)" stroke="white" stroke-width="0.6" fill="none"/>
+    <circle cx="250" cy="10" r="9" stroke="white" stroke-width="0.7" fill="none"/>
+  </svg>
+  <div class="hc">
+    <p class="hey">✦ Lusaka, Zambia ✦</p>
+    <h1 class="ht">Just Me<br><em>Fantasy</em><br>Gardens</h1>
+    <p class="hsub">Where every celebration becomes a treasured memory</p>
+    <div class="hcta">
+      <button class="btn-p" onclick="G('booking')">Reserve Your Date</button>
+      <button class="btn-w" onclick="G('events')">Explore Events</button>
+    </div>
+  </div>
+  <div class="hscr"><div class="sline"></div><span>Scroll</span></div>
+</section>
+<div class="fstrip"><div class="si"><div class="fgrid">
+  <div class="fi rev"><div class="fii"></div><div class="fit">Lush Garden Setting</div><p class="fid">Beautifully maintained gardens creating a natural, elegant atmosphere for every event.</p></div>
+  <div class="fi rev d1"><div class="fii"></div><div class="fit">Bespoke Decoration</div><p class="fid">Custom décor tailored precisely to your vision, theme, and personal style.</p></div>
+  <div class="fi rev d2"><div class="fii"></div><div class="fit">Cultural & Modern Events</div><p class="fid">Honouring Zambian traditions while embracing contemporary celebrations.</p></div>
+  <div class="fi rev d3"><div class="fii"></div><div class="fit">Dedicated Team</div><p class="fid">Our passionate team ensures every detail is perfect from planning to execution.</p></div>
+</div></div></div>
+<section class="aprsec"><div class="si"><div class="apg">
+  <div style="position:relative" class="rev">
+    <div class="pfr"></div><div class="pimg"><img src="img/1774218880142.jpg" alt="Garden Image" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
+  </div>
+  <div>
+    <span class="stag rev">Our Story</span>
+    <h2 class="sh rev d1">A Garden Born<br>From <em>Pure Passion</em></h2>
+    <div class="gr rev d1"></div>
+    <p class="ab rev d2">Just Me Fantasy Gardens is Lusaka's most enchanting event destination — a lush, carefully curated garden where cultures meet, love is celebrated, and memories are made to last a lifetime.</p>
+    <p class="ab rev d2">From the vibrant traditions of <strong>Chilanga Mulilo</strong> to elegant garden weddings, from intimate birthday picnics to lively kitchen parties, our garden transforms perfectly to suit your vision.</p>
+    <div class="strow rev d3">
+      <div><div class="sn">---</div><div class="sl">Events Hosted</div></div>
+      <div><div class="sn">---</div><div class="sl">Event Types</div></div>
+      <div><div class="sn">---</div><div class="sl">Satisfaction</div></div>
+    </div>
+    <div style="margin-top:2.3rem" class="rev d3"><button class="btn-p" onclick="G('about')">Discover Our Story</button></div>
+  </div>
+</div></div></section>
+<section class="eprsec"><div class="si" style="position:relative;z-index:1">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem">
+    <div><span class="stag rev">What We Host</span><h2 class="sh rev d1">Events &<br><em>Packages</em></h2></div>
+    <button class="btn-w rev d1" onclick="G('events')">View All →</button>
+  </div>
+  <div class="ecards">
+    <div class="ecard rev"><img src="img/1774218872167.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem"><div class="en">Chilanga Mulilo</div><p class="ed">Honour Zambian tradition in a beautifully decorated authentic setting.</p></div>
+    <div class="ecard rev d1"><img src="img/1774218863324.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem"><div class="en">Weddings</div><p class="ed">Say "I do" surrounded by lush greenery and golden light.</p></div>
+    <div class="ecard rev d2"><img src="img\1774218901484.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem"><div class="en">Birthdays</div><p class="ed">Celebrate in style with personalised garden birthday parties.</p></div>
+    <div class="ecard rev d1"><img src="img/1774218837567.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem"><div class="en">Picnics</div><p class="ed">Relax in our manicured gardens with premium picnic setups.</p></div>
+    <div class="ecard rev d2"><img src="img/1774218887040.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem"><div class="en">Kitchen Parties</div><p class="ed">Host the ultimate bridal shower in a warm garden atmosphere.</p></div>
+    <div class="ecard rev d3"><img src="img\1774218880142.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem"><div class="en">Custom Events</div><p class="ed">Corporate, graduations, baby showers — bespoke experiences for you.</p></div>
+  </div>
+  <div style="display:flex;justify-content:center;margin-top:3.2rem" class="rev"><button class="btn-p" onclick="G('events')">See Packages & Pricing</button></div>
+</div></section>
+<section class="tprsec"><div class="si" style="position:relative;z-index:1;text-align:center">
+  <span class="stag rev">What They Say</span>
+  <h2 class="sh rev d1" style="text-align:center">Words From Our <em>Guests</em></h2>
+  <div class="gr rev d1" style="margin:1.5rem auto"></div>
+  <div style="margin-top:2.8rem" class="rev"><button class="btn-o" onclick="G('testimonials')">Read All Reviews</button></div>
+</div></section>
+<section class="cban"><div class="si"><div class="cbinner rev">
+  <h2 class="cbt">Ready to Create<br>Something Extraordinary?</h2>
+  <p class="cbs">Your dream event starts with a single message. Let's make it unforgettable.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <button onclick="G('booking')" style="background:var(--gd);color:var(--w);padding:1rem 2.6rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.3s" onmouseover="this.style.background='var(--gm)'" onmouseout="this.style.background='var(--gd)'">Book Your Event Today</button>
+    <button onclick="G('gallery')" style="background:transparent;color:var(--gd);padding:1rem 2.6rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;border:1.5px solid var(--gd);cursor:pointer;transition:all 0.3s" onmouseover="this.style.background='rgba(14,31,14,0.09)'" onmouseout="this.style.background='transparent'">View Gallery</button>
+  </div>
+</div></div></section>
+<div id="ft-home"></div>
+</div>
+
+<!-- ════ ABOUT ════ -->
+<div class="page" id="p-about">
+<div class="ph"><div class="phi"><div class="pbc"><a onclick="G('home')">Home</a> / About Us</div><h1 class="pt">Our <em>Story</em></h1><p class="ps">A passion for creating magical moments rooted in Zambian warmth and elegance.</p></div></div>
+<section style="padding:7.5rem 0;background:var(--cream)"><div class="si"><div class="ag2">
+  <div style="position:relative" class="rev"><div class="pfr"></div><div class="aimg"><img src="img/1774218833387.jpg" style="width:100%;height:100%;object-fit:cover"></div></div>
+  <div>
+    <span class="stag rev">Who We Are</span>
+    <h2 class="sh rev d1">Just Me Fantasy <em>Gardens</em></h2>
+    <div class="gr rev d1"></div>
+    <p class="ab rev d2">Drawn in the heart of Lusaka, Just Me Fantasy Gardens was born out of a deep love for beautiful spaces, community, and the art of celebration. What began as a dream has grown into one of Lusaka's most sought-after event venues.</p>
+    <p class="ab rev d2">Our garden is more than a venue — it is a canvas. From the moment guests enter, they are transported into a world of lush greenery, carefully curated décor, and an atmosphere that simply cannot be replicated.</p>
+    <p class="ab rev d3">We take immense pride in honouring Zambian culture and traditions. Whether it's an authentic <strong>Chilanga Mulilo</strong>, a kitchen party full of song and laughter, or a bride walking down a garden aisle — we approach every event with passion and genuine care.</p>
+    <div style="margin-top:2.3rem;display:flex;gap:1rem;flex-wrap:wrap" class="rev d3">
+      <button class="btn-p" onclick="G('booking')">Book an Event</button>
+      <button class="btn-o" onclick="G('events')">Our Packages</button>
+    </div>
+  </div>
+</div></div></section>
+<section class="statsec"><div class="si"><div class="sgrid">
+  <div class="sbox rev"><div class="sbig">---</div><div class="slbl">Events Hosted</div></div>
+  <div class="sbox rev d1"><div class="sbig">---</div><div class="slbl">Event Categories</div></div>
+  <div class="sbox rev d2"><div class="sbig">---</div><div class="slbl">Happy Families</div></div>
+  <div class="sbox rev d3"><div class="sbig">---</div><div class="slbl">Satisfaction Rate</div></div>
+</div></div></section>
+<section class="vsec"><div class="si">
+  <span class="stag rev">What Drives Us</span><h2 class="sh rev d1">Our <em>Values</em></h2>
+  <div class="vg">
+    <div class="vc rev"><div class="vico">🌍</div><div class="vtit">Cultural Pride</div><p class="vtxt">We deeply honour Zambian traditions and ensure every cultural event is handled with authenticity, respect, and meaningful attention to detail.</p></div>
+    <div class="vc rev d1"><div class="vico">💎</div><div class="vtit">Unmatched Quality</div><p class="vtxt">From the flowers to the lighting to the smallest decorative detail — we never compromise. Every element must be beautiful and perfect.</p></div>
+    <div class="vc rev d2"><div class="vico">🤝</div><div class="vtit">Genuine Care</div><p class="vtxt">Our clients become family. We listen, understand your vision, and pour our hearts into making your dream event a reality.</p></div>
+    <div class="vc rev d1"><div class="vico">🌱</div><div class="vtit">Natural Beauty</div><p class="vtxt">We believe in the transformative power of nature. Our lush garden spaces provide a backdrop no indoor venue can replicate.</p></div>
+    <div class="vc rev d2"><div class="vico">⏰</div><div class="vtit">Reliability</div><p class="vtxt">Your event will happen as planned, on time, and exceeding expectations. We take every booking with the utmost professionalism.</p></div>
+    <div class="vc rev d3"><div class="vico">🎯</div><div class="vtit">Personalisation</div><p class="vtxt">No two events are the same. We tailor every detail to reflect your unique personality, story, and celebration style.</p></div>
+  </div>
+</div></section>
+<section class="tmsec"><div class="si">
+  <div style="text-align:center"><span class="stag rev">The People Behind the Magic</span><h2 class="sh rev d1" style="text-align:center">Meet Our <em>Team</em></h2><div class="gr rev d1" style="margin:1.5rem auto"></div></div>
+  <div class="tmg">
+    <div class="tmc rev"><div class="tmp">👩🏾</div><div class="tmn">Garden Owner</div><div class="tmr">Founder & Creative Director</div><p class="tmb">The visionary behind Just Me Fantasy Gardens, bringing passion, creativity, and an eye for beauty to every event hosted at our garden.</p></div>
+    <div class="tmc rev d1"><div class="tmp">👩🏾‍🌾</div><div class="tmn">Head Decorator</div><div class="tmr">Décor & Styling Lead</div><p class="tmb">A master of transformation — turning open spaces into breathtaking event settings with a unique blend of nature-inspired and luxury design.</p></div>
+    <div class="tmc rev d2"><div class="tmp">🧑🏾‍💼</div><div class="tmn">Events Coordinator</div><div class="tmr">Planning & Guest Relations</div><p class="tmb">The organisational heartbeat of every event — ensuring every booking is seamless and every client's day runs perfectly.</p></div>
+  </div>
+</div></section>
+<div id="ft-about"></div>
+</div>
+
+<!-- ════ EVENTS ════ -->
+<div class="page" id="p-events">
+<div class="ph"><div class="phi"><div class="pbc"><a onclick="G('home')">Home</a> / Events & Packages</div><h1 class="pt">Events &<br><em>Packages</em></h1><p class="ps">Tailored celebrations for every milestone — cultural, personal, and professional.</p></div></div>
+<section style="padding:7rem 0;background:var(--cream)"><div class="si">
+  <span class="stag rev">Our Packages</span><h2 class="sh rev d1">Choose Your <em>Package</em></h2><div class="gr rev d1"></div>
+  <p style="font-size:1rem;color:var(--tm);font-weight:300;line-height:1.9;max-width:620px" class="rev d2">Every package is designed with love, fully customisable, and delivered with our signature care.</p>
+  <div class="pkgrid">
+    <div class="pkc rev"><div class="pkh"><img src="img/1774218837567.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-bottom:1.1rem"><div class="pkn">Picnic</div><p class="pktag">Table setup (plates, underplate, glasses, cutlery, linen, center pieces, napkins, table numbers, artificial flowers and underplates)</p></div><div class="pkdiv"></div><div class="pkb"><div class="pklt">What's Included</div><ul class="pkli"><li>Premium picnic mat & cushion setup</li><li>Floral & candle centrepiece arrangement</li><li>Dedicated garden section</li><li>Up to 4 hours garden access</li><li>Basic décor styling</li></ul></div><div class="pkf"><div class="pkp">------n<small>Price varies by guest count & add-ons</small></div><button class="pkbtn" onclick="G('booking')">Book This Package</button></div></div>
+    <div class="pkc feat rev d1"><span class="pkfb">Most Popular</span><div class="pkh"><img src="img/1774218863324.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-bottom:1.1rem"><div class="pkn">Garden Wedding</div><p class="pktag">Your dream wedding surrounded by lush greenery, golden light, and pure elegance.</p></div><div class="pkdiv"></div><div class="pkb"><div class="pklt">What's Included</div><ul class="pkli"><li>Full venue access (ceremony + reception)</li><li>Luxury floral arch & aisle decoration</li><li>Custom table & reception décor</li><li>Lighting & ambiance setup</li><li>Bridal suite access</li><li>Event coordination on the day</li><li>-------</li></ul></div><div class="pkf"><div class="pkp">---------<small>Custom quotes for large weddings</small></div><button class="pkbtn" onclick="G('booking')">Book This Package</button></div></div>
+    <div class="pkc rev d2"><div class="pkh"><img src="img/1774218872167.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-bottom:1.1rem"><div class="pkn">Chilanga Mulilo</div><p class="pktag">Authentic cultural celebration honouring Zambian tradition with beauty and pride.</p></div><div class="pkdiv"></div><div class="pkb"><div class="pklt">What's Included</div><ul class="pkli"><li>Culturally themed décor & styling</li><li>Traditional fire setup assistance</li><li>Full garden access</li><li>Dedicated seating arrangement</li><li>Custom signage & name display</li><li>Event coordination support</li></ul></div><div class="pkf"><div class="pkp">-----<small>Custom quotes available</small></div><button class="pkbtn" onclick="G('booking')">Book This Package</button></div></div>
+    <div class="pkc rev"><div class="pkh"><img src="img/1774218880142.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-bottom:1.1rem"><div class="pkn">Birthday Celebration</div><p class="pktag">Celebrate your special day in style with a personalised garden birthday party.</p></div><div class="pkdiv"></div><div class="pkb"><div class="pklt">What's Included</div><ul class="pkli"><li>Themed décor (balloon arches, draping)</li><li>Cake table & dessert station setup</li><li>Personalised name backdrop</li><li>Colour-coordinated table settings</li><li>Garden access up to 6 hours</li></ul></div><div class="pkf"><div class="pkp">-------<small>Kids & adult parties available</small></div><button class="pkbtn" onclick="G('booking')">Book This Package</button></div></div>
+    <div class="pkc rev d1"><div class="pkh"><img src="img/1774218887040.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-bottom:1.1rem"><div class="pkn">Kitchen Party</div><p class="pktag">The ultimate bridal shower experience in a warm, joyful garden atmosphere.</p></div><div class="pkdiv"></div><div class="pkb"><div class="pklt">What's Included</div><ul class="pkli"><li>Elegant bridal-themed décor</li><li>Bride's chair / throne setup</li><li>Floral centrepieces on all tables</li><li>Gift table arrangement</li><li>Full garden section access</li></ul></div><div class="pkf"><div class="pkp">------<small>Customisable themes available</small></div><button class="pkbtn" onclick="G('booking')">Book This Package</button></div></div>
+    <div class="pkc rev d2"><div class="pkh"><img src="img/1774218901484.jpg" style="width:80px;height:80px;object-fit:cover;border-radius:8px;margin-bottom:1.1rem"><div class="pkn">Custom / Corporate</div><p class="pktag">Graduation, baby shower, corporate function, reunion — fully bespoke events.</p></div><div class="pkdiv"></div><div class="pkb"><div class="pklt">What's Included</div><ul class="pkli"><li>Personalised consultation & planning</li><li>Custom décor designed to your brief</li><li>Flexible garden access hours</li><li>Corporate branding options</li><li>Full event management available</li></ul></div><div class="pkf"><div class="pkp">Custom Quote<small>Contact us to discuss your event</small></div><button class="pkbtn" onclick="G('booking')">Get a Quote</button></div></div>
+  </div>
+</div></section>
+<section class="aosec"><div class="si" style="position:relative;z-index:1">
+  <span class="stag rev">Enhance Your Event</span><h2 class="sh rev d1">Premium <em>Add-Ons</em></h2>
+  <div class="aog">
+    <div class="aoi rev"><div class="aoic">📸</div><div class="aon">Photography Setup</div><p class="aod">Dedicated photo backdrop and props for beautiful memories.</p></div>
+    <div class="aoi rev d1"><div class="aoic">🍽️</div><div class="aon">Catering Coordination</div><p class="aod">We coordinate with trusted caterers for seamless dining.</p></div>
+    <div class="aoi rev d2"><div class="aoic">🕯️</div><div class="aon">Candle & Fairy Lights</div><p class="aod">Magical warm lighting that transforms the garden after sundown.</p></div>
+    <div class="aoi rev d3"><div class="aoic">🎤</div><div class="aon">Sound System</div><p class="aod">Professional PA system with microphone for speeches and music.</p></div>
+    <div class="aoi rev"><div class="aoic">🌺</div><div class="aon">Premium Floral Upgrade</div><p class="aod">Luxury fresh floral arrangements elevating every table and arch.</p></div>
+    <div class="aoi rev d1"><div class="aoic">🍰</div><div class="aon">Cake & Dessert Table</div><p class="aod">Beautifully styled dessert display station for your sweet moments.</p></div>
+    <div class="aoi rev d2"><div class="aoic">🚿</div><div class="aon">VIP Bathroom Facilities</div><p class="aod">Clean, well-maintained restroom facilities for your guests.</p></div>
+    <div class="aoi rev d3"><div class="aoic">🎆</div><div class="aon">Grand Entrance Setup</div><p class="aod">Dramatic entrance archway with floral or balloon arrangements.</p></div>
+  </div>
+</div></section>
+<section class="prosec"><div class="si">
+  <div style="text-align:center"><span class="stag rev">How It Works</span><h2 class="sh rev d1" style="text-align:center">From Dream to <em>Reality</em></h2><div class="gr rev d1" style="margin:1.5rem auto"></div></div>
+  <div class="prg">
+    <div class="prstep rev"><div class="prnum">01</div><div class="prtit">Send an Enquiry</div><p class="prdesc">Fill in our booking form with your event details and preferred date.</p></div>
+    <div class="prstep rev d1"><div class="prnum">02</div><div class="prtit">Consultation</div><p class="prdesc">We meet to discuss your vision, requirements, and design your event.</p></div>
+    <div class="prstep rev d2"><div class="prnum">03</div><div class="prtit">Confirm & Plan</div><p class="prdesc">Confirm your date with a deposit and we begin bringing it to life.</p></div>
+    <div class="prstep rev d3"><div class="prnum">04</div><div class="prtit">Celebrate!</div><p class="prdesc">Arrive to a perfectly set garden and enjoy your extraordinary event.</p></div>
+  </div>
+  <div style="text-align:center;margin-top:3.2rem" class="rev"><button class="btn-p" onclick="G('booking')">Start Your Booking</button></div>
+</div></section>
+<section class="faqsec"><div class="si">
+  <span class="stag rev">Common Questions</span><h2 class="sh rev d1">Frequently Asked <em>Questions</em></h2>
+  <div class="faqlist rev d2">
+    <div class="faqitem"><div class="faqq" onclick="TF(this)">How far in advance should I book? <span class="faqa-arrow">+</span></div><div class="faqa">We recommend booking at least 4–8 weeks in advance, especially for weekends and peak seasons. However, we welcome last-minute enquiries and will always try to accommodate you.</div></div>
+    <div class="faqitem"><div class="faqq" onclick="TF(this)">Is a deposit required to secure my date? <span class="faqa-arrow">+</span></div><div class="faqa">Yes, a 30% deposit is required to confirm and secure your event date. The remaining balance is due 7 days before your event.</div></div>
+    <div class="faqitem"><div class="faqq" onclick="TF(this)">Can I bring my own caterer? <span class="faqa-arrow">+</span></div><div class="faqa">Absolutely. You are welcome to bring your own caterer or use our partner catering services. We have a dedicated kitchen preparation area available.</div></div>
+    <div class="faqitem"><div class="faqq" onclick="TF(this)">What happens if it rains? <span class="faqa-arrow">+</span></div><div class="faqa">We have sheltered areas and can arrange tent/gazebo structures upon request. We always have a rain contingency plan ready so your event is never disrupted.</div></div>
+    <div class="faqitem"><div class="faqq" onclick="TF(this)">How many guests can the garden accommodate? <span class="faqa-arrow">+</span></div><div class="faqa">Our garden can comfortably accommodate events from intimate gatherings of 20 people up to large celebrations of 500+ guests depending on the setup.</div></div>
+  </div>
+</div></section>
+<div id="ft-events"></div>
+</div>
+
+<!-- ════ GALLERY ════ -->
+<div class="page" id="p-gallery">
+<div class="ph"><div class="phi"><div class="pbc"><a onclick="G('home')">Home</a> / Gallery</div><h1 class="pt">Our <em>Gallery</em></h1><p class="ps">A glimpse of the magic that unfolds at Just Me Fantasy Gardens.</p></div></div>
+<section style="padding:6rem 0 8rem;background:var(--ivory)"><div class="si">
+  <div class="gfltrs">
+    <button class="gfbtn active" onclick="FG('all',this)">All Events</button>
+    <button class="gfbtn" onclick="FG('wedding',this)">Weddings</button>
+    <button class="gfbtn" onclick="FG('chilanga',this)">Chilanga Mulilo</button>
+    <button class="gfbtn" onclick="FG('birthday',this)">Birthdays</button>
+    <button class="gfbtn" onclick="FG('kitchen',this)">Kitchen Parties</button>
+    <button class="gfbtn" onclick="FG('picnic',this)">Picnics</button>
+    <button class="gfbtn" onclick="FG('garden',this)">Garden Views</button>
+  </div>
+  <div class="ggrid rev">
+    <div class="gi tall" data-cat="wedding" onclick="OL('img/1774218863324.jpg','Wedding Ceremony Setup')"><div class="gph"><img src="img/1774218863324.jpg" style="width:100%;height:100%;object-fit:cover"></div><div class="gov"><div class="gcat">Wedding</div><div class="gcap">Ceremony Arch</div></div></div>
+    <div class="gi" data-cat="garden" onclick="OL('img/1774218833387.jpg','The Main Garden')"><div class="gph"><img src="img/1774218833387.jpg" style="width:100%;height:100%;object-fit:cover"></div><div class="gov"><div class="gcat">Garden</div><div class="gcap">Lush Garden View</div></div></div>
+    <div class="gi" data-cat="chilanga" onclick="OL('img/1774218872167.jpg','Chilanga Mulilo Night')"><div class="gph"><img src="img/1774218872167.jpg" style="width:100%;height:100%;object-fit:cover"></div><div class="gov"><div class="gcat">Chilanga Mulilo</div><div class="gcap">Cultural Fire</div></div></div>
+    <div class="gi wide" data-cat="wedding" onclick="OL('img/1774218863324.jpg','Wedding Reception')"><div class="gph"><img src="img/1774218863324.jpg" style="width:100%;height:100%;object-fit:cover"></div><div class="gov"><div class="gcat">Wedding</div><div class="gcap">Reception Tables</div></div></div>
+    <div class="gi" data-cat="birthday" onclick="OL('🎂','Garden Birthday')"><div class="gph">🎂</div><div class="gov"><div class="gcat">Birthday</div><div class="gcap">Cake Table Setup</div></div></div>
+    <div class="gi" data-cat="garden" onclick="OL('🌸','Floral Arrangements')"><div class="gph">🌸</div><div class="gov"><div class="gcat">Décor</div><div class="gcap">Floral Arrangements</div></div></div>
+    <div class="gi tall" data-cat="kitchen" onclick="OL('👰🏾‍♀️','Kitchen Party')"><div class="gph">👰🏾‍♀️</div><div class="gov"><div class="gcat">Kitchen Party</div><div class="gcap">Bridal Throne</div></div></div>
+    <div class="gi" data-cat="picnic" onclick="OL('🧺','Garden Picnic')"><div class="gph">🧺</div><div class="gov"><div class="gcat">Picnic</div><div class="gcap">Luxury Picnic Setup</div></div></div>
+    <div class="gi" data-cat="chilanga" onclick="OL('🏺','Traditional Décor')"><div class="gph">🏺</div><div class="gov"><div class="gcat">Chilanga Mulilo</div><div class="gcap">Traditional Décor</div></div></div>
+    <div class="gi" data-cat="garden" onclick="OL('🕯️','Evening Lights')"><div class="gph">🕯️</div><div class="gov"><div class="gcat">Garden</div><div class="gcap">Evening Ambiance</div></div></div>
+    <div class="gi wide" data-cat="birthday" onclick="OL('🎉','Birthday Celebration')"><div class="gph">🎉</div><div class="gov"><div class="gcat">Birthday</div><div class="gcap">Full Garden Party</div></div></div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/v30RI_mGSd8?si=zy4BKkR8XiL4Y0V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:8px"></iframe>
+  </div>
+  <p style="text-align:center;margin-top:2rem;font-size:0.75rem;color:var(--tx);letter-spacing:0.1em" class="rev">📸 Real photos coming soon — follow us on social media for the latest snapshots</p>
+</div></section>
+<div id="ft-gallery"></div>
+</div>
+<div class="lbox" id="lightbox" onclick="CL(event)"><div class="lbi"><button class="lbcl" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button><div class="lbimg" id="lbImg">🌿</div><div class="lbcap" id="lbCap">Caption</div></div></div>
+
+<!-- ════ TESTIMONIALS ════ -->
+<div class="page" id="p-testimonials">
+<div class="ph"><div class="phi"><div class="pbc"><a onclick="G('home')">Home</a> / Testimonials</div><h1 class="pt">What Our<br><em>Guests</em> Say</h1><p class="ps">Real words from real families who trusted us with their most special moments.</p></div></div>
+<section style="padding:6.5rem 0 8rem;background:var(--cream);position:relative;overflow:hidden"><div style="content:'';position:absolute;top:-3rem;left:1rem;font-family:'Cormorant Garamond',serif;font-size:20rem;color:rgba(201,169,110,0.06);line-height:1;pointer-events:none;z-index:0"></div>
+<div class="si" style="position:relative;z-index:1">
+  <span class="stag rev">Guest Reviews</span><h2 class="sh rev d1">Stories of <em>Joy</em></h2><div class="gr rev d1"></div>
+  <div class="tg9">
+    <div class="tc9 rev"><div class="tetag"><b>BIRTHDAY<b></div><div class="ts">★ ★ ★ ★ ★</div><p class="tq">"my birthdaywas absolutely breathtaking. The team understood exactly what i wanted and the garden was decorated beyond our expectations. We received compliments for weeks!"</p><div class="ta"><div class="tav">B</div><div><div class="tname"><b>BENARD KALENGA SHAMBOKO<b></div><div class="tevent">BIRTHDAY · 19 DECEMBER 2025</div></div></div></div>
+  </div>
+</div></section>
+<section class="rban"><div class="si"><div class="rg">
+  <div class="rbox rev"><div class="rbig">---</div><div class="rstars">★★★★★</div><div class="rlbl">Average Rating</div></div>
+  <div class="rbox rev d1"><div class="rbig">---</div><div class="rstars" style="color:var(--gold);font-size:0.78rem">✦ ✦ ✦</div><div class="rlbl">Events Completed</div></div>
+  <div class="rbox rev d2"><div class="rbig">---</div><div class="rstars" style="color:var(--gold);font-size:0.78rem">✦ ✦ ✦</div><div class="rlbl">Would Recommend</div></div>
+  <div class="rbox rev d3"><div class="rbig">---</div><div class="rstars" style="color:var(--gold);font-size:0.78rem">✦ ✦ ✦</div><div class="rlbl">Satisfaction Rate</div></div>
+</div></div></section>
+<section class="lrsec"><div class="si">
+  <div style="text-align:center"><span class="stag rev">Share Your Experience</span><h2 class="sh rev d1" style="text-align:center">Leave a <em>Review</em></h2><div class="gr rev d1" style="margin:1.5rem auto"></div></div>
+  <div class="rfwrap rev d2">
+    <form id="revForm">
+      <div style="margin-bottom:1.3rem"><label style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--tx);display:block;margin-bottom:0.65rem">Your Rating</label>
+      <div class="starrow"><button type="button" class="starbtn" data-v="1" onclick="SR(1)">★</button><button type="button" class="starbtn" data-v="2" onclick="SR(2)">★</button><button type="button" class="starbtn" data-v="3" onclick="SR(3)">★</button><button type="button" class="starbtn" data-v="4" onclick="SR(4)">★</button><button type="button" class="starbtn" data-v="5" onclick="SR(5)">★</button></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem">
+        <div class="fgrp"><label>Your Name *</label><input type="text" placeholder="Full name" required/></div>
+        <div class="fgrp"><label>Event Type *</label><select required><option value="" disabled selected>Select event</option><option>Chilanga Mulilo</option><option>Wedding</option><option>Birthday</option><option>Kitchen Party</option><option>Picnic</option><option>Other</option></select></div>
+      </div>
+      <div class="fgrp"><label>Your Review *</label><textarea placeholder="Tell us about your experience..." style="min-height:120px" required></textarea></div>
+      <button type="submit" class="submrev">Submit My Review</button>
+    </form>
+    <div id="revSuc" style="display:none;text-align:center;padding:2rem;background:rgba(45,82,51,0.07);border:1px solid rgba(45,82,51,0.18);margin-top:1rem;font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gm)">🌿 Thank you for your kind words! Your review means the world to us.</div>
+  </div>
+</div></section>
+<div id="ft-testi"></div>
+</div>
+
+<!-- ════ BLOG ════ -->
+<div class="page" id="p-blog">
+<div class="ph"><div class="phi"><div class="pbc"><a onclick="G('home')">Home</a> / What's Happening</div><h1 class="pt">What's <em>Happening</em></h1><p class="ps">News, event highlights, seasonal offers, and stories from the garden.</p></div></div>
+<section style="padding:7rem 0 8rem;background:var(--cream)"><div class="si">
+  <div class="blayout">
+    <div class="bposts">
+      <div class="bcard rev"><div class="bimg"><img src="img/1774218833387.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"><span class="bcat">Garden News</span></div><div class="bbody"><div class="bmeta"><span>March 23, 2026</span><span>Garden Updates</span></div><h2 class="btit">Our Brand New Outdoor Lounge Area is Now Open!</h2><p class="bex">We are thrilled to announce the completion of our stunning new al fresco lounge — a beautifully designed open-air space perfect for cocktail hours, pre-event gatherings, and evening celebrations under the stars. The new area features premium outdoor furniture, fairy lights, and lush vertical garden walls that create an intimate, magical atmosphere for any occasion.</p><span class="brl">Continue Reading →</span></div></div>
+      <div class="bcard rev"><div class="bimg"><img src="img/1774218872167.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"><span class="bcat">Event Highlight</span></div><div class="bbody"><div class="bmeta"><span>March 23, 2026</span><span>Cultural Events</span></div><h2 class="btit">A Stunning Chilanga Mulilo Weekend at the Garden</h2><p class="bex">Last weekend's Chilanga Mulilo celebration was one for the books. The Mwamba family entrusted us with one of Zambia's most meaningful cultural traditions and we poured our entire hearts into making it extraordinary. From the authentic fire setup to the culturally inspired décor with traditional textiles, every detail honoured the rich heritage of this ceremony beautifully.</p><span class="brl">Continue Reading →</span></div></div>
+      <div class="bcard rev"><div class="bimg"><img src="img/1774218863324.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"><span class="bcat">Wedding Season</span></div><div class="bbody"><div class="bmeta"><span>March 23, 2026</span><span>Weddings</span></div><h2 class="btit">Book Early for the 2026 Wedding Season — Dates Are Filling Fast!</h2><p class="bex">Wedding season in Lusaka is officially here and our calendar is filling up at an exciting pace. With the dry season months being especially popular for garden ceremonies, we want to make sure your dream wedding date is reserved before it's gone. This year we're introducing our new premium wedding package with an expanded floral arch and upgraded lighting.</p><span class="brl" onclick="G('booking')">Book Your Date →</span></div></div>
+      
+    </div>
+    <aside class="bside">
+      <div class="swid rev"><div class="wtit">Recent Posts</div>
+        <div class="rpc"><div class="rpico"></div><div><div class="rptit">New Outdoor Lounge Area Now Open</div><div class="rpdt">March 10, 2026</div></div></div>
+      </div>
+      <div class="swid rev d1"><div class="wtit">Categories</div>
+        <div class="tagcloud"><span class="tag">Garden News</span><span class="tag">Chilanga Mulilo</span><span class="tag">Birthdays</span><span class="tag">Kitchen Parties</span><span class="tag">Picnics</span><span class="tag">Offers</span><span class="tag">Corporate</span></div>
+      </div>
+      <div class="swid rev d2"><div class="wtit">Stay Updated</div>
+        <p style="font-size:0.83rem;color:var(--tx);font-weight:300;line-height:1.7;margin-bottom:1.4rem">Get the latest news, event highlights, and special offers to your inbox.</p>
+        <form class="nlform" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-family:Cormorant Garamond,serif;font-size:1.1rem;color:var(--gm);text-align:center\'>🌿 You\'re subscribed!</p>'"><input type="email" placeholder="Your email address" required/><button type="submit">Subscribe Now</button></form>
+      </div>
+      <div class="swid rev d3"><div class="wtit">Book an Event</div>
+        <p style="font-size:0.83rem;color:var(--tx);font-weight:300;line-height:1.7;margin-bottom:1.4rem">Ready to create your own unforgettable garden moment?</p>
+        <button class="btn-p" style="display:block;width:100%;text-align:center" onclick="G('booking')">Enquire Now</button>
+      </div>
+    </aside>
+  </div>
+</div></section>
+<div id="ft-blog"></div>
+</div>
+
+<!-- ════ BOOKING ════ -->
+<div class="page" id="p-booking">
+<div class="ph"><div class="phi"><div class="pbc"><a onclick="G('home')">Home</a> / Book an Event</div><h1 class="pt">Book Your<br><em>Special Day</em></h1><p class="ps">Fill in your details and our team will be in touch within 24 hours.</p></div></div>
+<section style="padding:7rem 0 8rem;background:var(--cream)"><div class="si">
+  <div class="bklayout">
+    <div class="rev">
+      <div class="bkic"><div class="bkicc">
+        <h2 class="bkit">Let's Create Something <em>Extraordinary</em></h2>
+        <p class="bkib">Our team is ready to bring your vision to life. Fill in the enquiry form and we'll get back to you with everything you need within 24 hours.</p>
+        <div class="clist">
+          <div class="ci"><span class="cico">📍</span><div><span class="clbl">Location</span><span class="cval">Lusaka, Zambia</span></div></div>
+          <div class="ci"><span class="cico">📞</span><div><span class="clbl">Phone / WhatsApp</span><span class="cval">+260 970 824 455</span></div></div>
+          <div class="ci"><span class="cico">✉️</span><div><span class="clbl">Email Address</span><span class="cval">info@justmefantasygardens.com</span></div></div>
+          <div class="ci"><span class="cico">🕐</span><div><span class="clbl">Opening Hours</span><span class="cval">Monday – Sunday · 8:00am – 8:00pm</span></div></div>
+          <div class="ci"><span class="cico">⚡</span><div><span class="clbl">Response Time</span><span class="cval">Within 24 hours</span></div></div>
+        </div>
+        <div class="socrow"><div class="socbtn">FB</div><div class="socbtn">IG</div><div class="socbtn">WA</div><div class="socbtn">TT</div></div>
+      </div></div>
+      <div style="background:var(--gold);padding:1.9rem 2.8rem;margin-top:1.5px">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gd);font-weight:300;line-height:1.4">"Secure your date early — our most popular weekends book up months in advance."</p>
+        <p style="font-size:0.68rem;color:rgba(14,31,14,0.55);margin-top:0.45rem;letter-spacing:0.1em;text-transform:uppercase">— The Just Me Fantasy Gardens Team</p>
+      </div>
+    </div>
+    <div class="bkfw rev d1">
+      <div id="bkForm">
+        <h2 class="fmtit">Send Your Enquiry</h2>
+        <p class="fmst">All fields marked * are required. We'll respond within 24 hours.</p>
+        <div class="fmsl">Personal Details</div>
+        <div class="frow">
+          <div class="fgrp"><label>First Name *</label><input type="text" placeholder="Your first name" required/></div>
+          <div class="fgrp"><label>Last Name *</label><input type="text" placeholder="Your last name" required/></div>
+        </div>
+        <div class="frow">
+          <div class="fgrp"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+260 XXX XXX XXX" required/></div>
+          <div class="fgrp"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+        </div>
+        <div class="fmsl">Event Details</div>
+        <div class="frow">
+          <div class="fgrp"><label>Event Type *</label><select required><option value="" disabled selected>Select event type</option><option>Chilanga Mulilo</option><option>Wedding</option><option>Birthday Party</option><option>Garden Picnic</option><option>Kitchen Party</option><option>Baby Shower</option><option>Graduation Party</option><option>Corporate Event</option><option>Other</option></select></div>
+          <div class="fgrp"><label>Preferred Date *</label><input type="date" required/></div>
+        </div>
+        <div class="frow">
+          <div class="fgrp"><label>Number of Guests</label><select><option value="" disabled selected>Approx. guest count</option><option>Under 20</option><option>20–50</option><option>50–100</option><option>100–200</option><option>200–500</option><option>500+</option></select></div>
+          <div class="fgrp"><label>Budget Range</label><select><option value="" disabled selected>Approximate budget</option><option>Under K2,000</option><option>K2,000–K5,000</option><option>K5,000–K10,000</option><option>K10,000–K20,000</option><option>K20,000+</option></select></div>
+        </div>
+        <div class="fmsl">Tell Us More</div>
+        <div class="fgrp"><label>Event Theme / Colour Scheme</label><input type="text" placeholder="e.g. White & gold, Tropical, Traditional Zambian..."/></div>
+        <div class="fgrp"><label>Additional Details & Special Requests</label><textarea placeholder="Share your vision, special requirements, décor ideas, or questions..." style="min-height:115px"></textarea></div>
+        <button type="button" class="subbtn" onclick="SB()">Submit My Enquiry</button>
+        <p class="fmlegal">By submitting this form you agree to be contacted by our team regarding your event enquiry.</p>
+      </div>
+      <div class="bksuc" id="bkSuc">
+        <div class="bksuc-ico">🌿</div>
+        <h3 class="bksuc-t">Thank You for Your Enquiry!</h3>
+        <p class="bksuc-b">Your booking request has been received. Our team will review your details and get back to you within 24 hours to discuss your event and confirm availability.</p>
+        <button class="btn-p" onclick="G('events')">Browse Our Packages</button>
+        <div style="margin-top:1rem"><button class="btn-o" onclick="G('home')">Back to Home</button></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+<section class="whysec"><div class="si">
+  <div style="text-align:center"><span class="stag rev">Why Book With Us</span><h2 class="sh rev d1" style="text-align:center">The <em>Just Me</em> Difference</h2><div class="gr rev d1" style="margin:1.5rem auto"></div></div>
+  <div class="whyg">
+    <div class="whyi rev"><div class="whyico">💝</div><div class="whyt">Personal Touch</div><p class="whyd">Every event is handled with individual care — we treat your celebration like our own.</p></div>
+    <div class="whyi rev d1"><div class="whyico">🎨</div><div class="whyt">Creative Décor</div><p class="whyd">Our decorating team brings stunning, original designs tailored to your vision.</p></div>
+    <div class="whyi rev d2"><div class="whyico">📅</div><div class="whyt">Flexible Scheduling</div><p class="whyd">We work around your timeline and can accommodate events any day of the week.</p></div>
+    <div class="whyi rev d3"><div class="whyico">🏆</div><div class="whyt">Proven Excellence</div><p class="whyd">500+ events hosted with a 100% client satisfaction rate — your success is our track record.</p></div>
+  </div>
+</div></section>
+<div id="ft-booking"></div>
+</div>
+
+<!-- FOOTER TEMPLATE -->
+<template id="ftpl">
+<footer>
+  <div class="si">
+    <div class="fg">
+      <div><div class="flogo">Just Me Fantasy Gardens<span>Lusaka, Zambia</span></div><p class="fabout">A premier garden venue in the heart of Lusaka dedicated to making every event an extraordinary experience. From cultural celebrations to grand weddings, we are here for every milestone.</p></div>
+      <div><div class="fct">Pages</div><ul class="flinks"><li><a onclick="G('home')">Home</a></li><li><a onclick="G('about')">About Us</a></li><li><a onclick="G('events')">Events</a></li><li><a onclick="G('gallery')">Gallery</a></li><li><a onclick="G('blog')">News</a></li></ul></div>
+      <div><div class="fct">Events We Host</div><ul class="flinks"><li><a onclick="G('events')">Chilanga Mulilo</a></li><li><a onclick="G('events')">Weddings</a></li><li><a onclick="G('events')">Birthdays</a></li><li><a onclick="G('events')">Kitchen Parties</a></li><li><a onclick="G('events')">Garden Picnics</a></li></ul></div>
+      <div><div class="fct">Contact</div><ul class="flinks"><li><a>📍 Lusaka, Zambia</a></li><li><a>📞 +260 970 824 455</a></li><li><a>✉️ info@justmefantasygardens.com</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2026 Just Me Fantasy Gardens. All rights reserved.</span></div>
+  </div>
+</footer>
+</template>
+
+<!-- FLOATING BOOK BUTTON -->
+<div class="fab" onclick="G('booking')"><div class="fabt">Book<br>Now</div></div>
+
+<script>
+// Inject footers
+const ftpl=document.getElementById('ftpl').innerHTML;
+['home','about','events','gallery','testimonials','blog','booking'].forEach(p=>{
+  const el=document.getElementById('ft-'+p);if(el)el.outerHTML=ftpl;
+});
+
+// Page routing
+const PAGES=['home','about','events','gallery','testimonials','blog','booking'];
+function G(id){
+  PAGES.forEach(p=>{
+    document.getElementById('p-'+p).classList.remove('active');
+    const n=document.getElementById('n-'+p);if(n)n.classList.remove('active');
+  });
+  document.getElementById('p-'+id).classList.add('active');
+  const nav=document.getElementById('n-'+id);if(nav)nav.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  setTimeout(()=>{
+    document.querySelectorAll('#p-'+id+' .rev').forEach(el=>el.classList.remove('vis'));
+    OR(id);
+  },60);
+}
+
+function OR(pid){
+  const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis');}),{threshold:0.09});
+  document.querySelectorAll('#p-'+pid+' .rev').forEach(el=>obs.observe(el));
+}
+PAGES.forEach(p=>OR(p));
+
+// Hamburger
+document.getElementById('hbgBtn').addEventListener('click',()=>document.getElementById('mobMenu').classList.add('open'));
+document.getElementById('mobClose').addEventListener('click',()=>document.getElementById('mobMenu').classList.remove('open'));
+function CM(){document.getElementById('mobMenu').classList.remove('open');}
+
+// FAQ
+function TF(el){const a=el.nextElementSibling;el.classList.toggle('op');a.classList.toggle('op');}
+
+// Gallery
+function FG(cat,btn){
+  document.querySelectorAll('.gfbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.querySelectorAll('.gi').forEach(item=>{
+    if(cat==='all'||item.dataset.cat===cat){item.style.opacity='1';item.style.pointerEvents='auto';}
+    else{item.style.opacity='0.15';item.style.pointerEvents='none';}
+  });
+}
+function OL(ico,cap){document.getElementById('lbImg').textContent=ico;document.getElementById('lbCap').textContent=cap;document.getElementById('lightbox').classList.add('open');}
+function CL(e){if(e.target===document.getElementById('lightbox'))document.getElementById('lightbox').classList.remove('open');}
+
+// Review form
+function SR(v){document.querySelectorAll('.starbtn').forEach(b=>b.classList.toggle('sel',parseInt(b.dataset.v)<=v));}
+document.getElementById('revForm').addEventListener('submit',function(e){e.preventDefault();this.style.display='none';document.getElementById('revSuc').style.display='block';});
+
+// Booking form
+function SB(){document.getElementById('bkForm').style.display='none';document.getElementById('bkSuc').style.display='block';}
+</script>
+</body>
+</html>
